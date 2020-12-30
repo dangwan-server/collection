@@ -527,6 +527,21 @@ func (arr *AbsCollection) Random() IMix {
 	return arr.Index(index)
 }
 
+func (arr *AbsCollection) RandomInt(i int64) IMix {
+	if arr.Err() != nil {
+		return nil
+	}
+
+	if arr.Count() == 0 {
+		return NewErrorMix(errors.New("Collection can not be empty"))
+	}
+
+	s := rand.NewSource(i)
+	r := rand.New(s)
+	index := r.Intn(arr.Count())
+	return arr.Index(index)
+}
+
 func (arr *AbsCollection) Reverse() ICollection {
 	if arr.Err() != nil {
 		return arr
