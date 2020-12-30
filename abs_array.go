@@ -521,7 +521,7 @@ func (arr *AbsCollection) Random() IMix {
 		return NewErrorMix(errors.New("Collection can not be empty"))
 	}
 
-	s := rand.NewSource(time.Now().Unix())
+	s := rand.NewSource(time.Now().UnixNano())
 	r := rand.New(s)
 	index := r.Intn(arr.Count())
 	return arr.Index(index)
