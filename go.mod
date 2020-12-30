@@ -1,4 +1,4 @@
-module github.com/jianfengye/collection
+module github.com/dangwan-server/collection
 
 go 1.13
 
